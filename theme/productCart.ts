@@ -1,4 +1,4 @@
-export const productCart = {
+export const productCartStyle = {
   container: "rounded-xl w-full p-3 text-gray-900 bg-white/70",
   head: "w-full flex justify-between mb-5",
   title: "text-xl font-semibold",

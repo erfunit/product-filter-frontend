@@ -2,18 +2,19 @@ import http from "@/api/http";
 import { Data } from "@/types/formdata";
 import React from "react";
 import ProductCart from "../components/ProductCart";
+import FilterForm from "../components/FilterForm";
 
-async function getProducts(): Promise<string | Data[]> {
+async function getProducts(url: string): Promise<string | Data[]> {
   return http
-    .get("/products")
+    .get(url)
     .then((res) => res.data)
     .catch((err) => err.message);
 }
-
 const ShowPage = async () => {
-  const data: string | Data[] = await getProducts();
+  const data: string | Data[] = await getProducts("/products");
   return (
     <>
+      {/* <FilterForm fetchData={getProducts} /> */}
       {typeof data === "string" ? (
         <div className="w-full flex justify-center py-11">
           <span className="p-3 bg-red-300 rounded-xl text-red-700">{data}</span>

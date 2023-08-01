@@ -56,7 +56,7 @@ const AdminPage = () => {
               Description:
             </label>
             <textarea
-              placeholder="tag1,tag2,tag3"
+              placeholder="tell about product..."
               className={`${inputStyle} h-[130px]`}
             />
           </div>
