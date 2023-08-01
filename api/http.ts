@@ -1,6 +1,6 @@
-import axios from "axios";
+import axios, { Axios } from "axios";
 
-const http = axios.create({
+const http: Axios = axios.create({
   baseURL: "https://localhost:5001",
   headers: {
     "Content-Type": "application/json",

@@ -21,7 +21,9 @@ const useFetch = () => {
         setError(err.message);
         setData([]);
       });
-  });
+  }, []);
+
+  return [data, error, loading] as [typeof data, typeof error, typeof loading];
 };
 
 export default useFetch;
