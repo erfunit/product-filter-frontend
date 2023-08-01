@@ -6,6 +6,6 @@ export default function resetForm(setData: Dispatch<SetStateAction<Data>>) {
     name: "",
     price: 0,
     tags: [],
-    descriptions: "",
+    description: "",
   });
 }

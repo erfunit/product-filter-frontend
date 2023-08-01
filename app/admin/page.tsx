@@ -10,7 +10,7 @@ const AdminPage = () => {
     name: "",
     price: 0,
     tags: [],
-    descriptions: "",
+    description: "",
   });
 
   return (
