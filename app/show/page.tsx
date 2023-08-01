@@ -12,12 +12,15 @@ async function getProducts(): Promise<string | Data[]> {
 
 const ShowPage = async () => {
   const data: string | Data[] = await getProducts();
-
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3">
-      {typeof data === "string"
-        ? data
-        : data.map((product: Data) => (
+    <>
+      {typeof data === "string" ? (
+        <div className="w-full flex justify-center py-11">
+          <span className="p-3 bg-red-300 rounded-xl text-red-700">{data}</span>
+        </div>
+      ) : (
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3">
+          {data.map((product: Data) => (
             <ProductCart
               name={product.name}
               price={product.price}
@@ -25,7 +28,9 @@ const ShowPage = async () => {
               description={product.description}
             />
           ))}
-    </div>
+        </div>
+      )}
+    </>
   );
 };
 
