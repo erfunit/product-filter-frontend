@@ -1,0 +1,14 @@
+[
+  {
+    "name": "product1",
+    "price": 3413,
+    "tags": ["book", "product", "shopping"],
+    "description": "this is a book product that provides some codes to users"
+  },
+  {
+    "name": "product2",
+    "price": 3413,
+    "tags": ["book", "product", "shopping"],
+    "description": "this is a book product that provides some codes to users"
+  }
+]
