@@ -2,6 +2,7 @@
 import { buttonFill, buttonRegular, inputStyle } from "@/theme/input";
 import { Data } from "@/types/formdata";
 import onAddProduct from "@/utils/addProduct";
+import resetForm from "@/utils/resetForm";
 import React, { FormEvent, useState } from "react";
 
 const AdminPage = () => {
@@ -64,8 +65,12 @@ const AdminPage = () => {
           <button className={buttonFill} type="submit">
             Add To Products
           </button>
-          <button className={buttonRegular} type="reset">
-            Add To Products
+          <button
+            onClick={(e) => resetForm(setData)}
+            className={buttonRegular}
+            type="reset"
+          >
+            reset
           </button>
         </div>
       </form>

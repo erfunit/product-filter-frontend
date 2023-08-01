@@ -1,4 +1,6 @@
 import { Data } from "@/types/formdata";
-import { FormEvent } from "react";
+import { Dispatch, FormEvent, SetStateAction } from "react";
 
-export default function onAddProduct(event: FormEvent, data: Data) {}
+export default function onAddProduct(event: FormEvent) {
+  event.preventDefault();
+}
