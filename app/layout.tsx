@@ -1,6 +1,6 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Nunito_Sans } from "next/font/google";
+import { Nunito as Nunito_Sans } from "next/font/google";
 import Header from "./components/Header";
 
 const inter = Nunito_Sans({ subsets: ["latin"] });
@@ -17,9 +17,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={inter.className}>
       <body
-        className={`w-screen min-h-screen bg-gray-700 flex flex-col justify-between text-white ${inter.className}`}
+        className={`w-screen min-h-screen bg-gray-800 flex flex-col justify-between text-white font-sans`}
       >
         <Header />
         <main className="container 2xl:max-w-screen-xl m-auto mt-4 px-4">
