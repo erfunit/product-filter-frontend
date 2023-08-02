@@ -15,7 +15,7 @@ const ProductCart = ({
         <span className={productCartStyle.price}>{price}$</span>
       </div>
       <p className={productCartStyle.description}>{description}</p>
-      <div className="flex gap-3">
+      <div className="flex gap-2 flex-wrap">
         {tags.map((t) => (
           <span className={productCartStyle.tag}>{t}</span>
         ))}

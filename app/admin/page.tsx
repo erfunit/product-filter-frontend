@@ -3,7 +3,7 @@ import { buttonFill, buttonRegular, inputStyle } from "@/theme/input";
 import { Data } from "@/types/formdata";
 import onAddProduct from "@/utils/addProduct";
 import resetForm from "@/utils/resetForm";
-import React, { FormEvent, useState } from "react";
+import React, { ChangeEvent, FormEvent, useState } from "react";
 
 const AdminPage = () => {
   const [data, setData] = useState<Data>({
@@ -13,10 +13,20 @@ const AdminPage = () => {
     description: "",
   });
 
+  const onChangeHandler = (
+    e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>
+  ) => {
+    if (e.target.name === "tags") {
+      setData({ ...data, tags: e.target.value.split(",") });
+    } else {
+      setData({ ...data, [e.target.name]: e.target.value });
+    }
+  };
+
   return (
     <div>
       <form
-        onSubmit={(event) => onAddProduct(event, data)}
+        onSubmit={(event) => onAddProduct(event, data, setData)}
         className="mx-auto max-w-screen-sm "
       >
         <h1 className="mb-2 text-2xl font-bold text-white/30">ADMIN FORM</h1>
@@ -26,7 +36,10 @@ const AdminPage = () => {
               Name:
             </label>
             <input
+              value={data.name}
+              onChange={(e) => onChangeHandler(e)}
               type="text"
+              name="name"
               placeholder="the name of product..."
               className={inputStyle}
             />
@@ -36,7 +49,10 @@ const AdminPage = () => {
               Price:
             </label>
             <input
+              value={data.price}
               type="text"
+              onChange={(e) => onChangeHandler(e)}
+              name="price"
               placeholder="enter price here..."
               className={inputStyle}
             />
@@ -46,8 +62,11 @@ const AdminPage = () => {
               Tags:
             </label>
             <input
+              value={data.tags.join(",")}
               placeholder="tag1,tag2,tag3"
               type="text"
+              onChange={(e) => onChangeHandler(e)}
+              name="tags"
               className={inputStyle}
             />
           </div>
@@ -56,6 +75,9 @@ const AdminPage = () => {
               Description:
             </label>
             <textarea
+              name="description"
+              onChange={(e) => onChangeHandler(e)}
+              value={data.description}
               placeholder="tell about product..."
               className={`${inputStyle} h-[130px]`}
             />
